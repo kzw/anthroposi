@@ -5,4 +5,4 @@ $(gem_file): lib/anthroposi.rb anthroposi.gemspec
 clean:
 	\rm anthroposi*.gem test
 test: lib/anthroposi.rb tests/anthroposi_spec.rb makefile
-	rspec -I lib tests; touch test
+	bundle && rspec -I lib tests; touch test
