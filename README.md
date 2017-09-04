@@ -16,5 +16,5 @@ This outputs `2.83KiB`
 
 ## Prior art
 
-Research into existing works point to similar api available in [rail](https://github.com/rail/rail)
+Research into existing works point to similar api available in [rail](https://github.com/rails/rails)
 and possibly also in [active state](https://www.activestate.com/ruby-programming)
