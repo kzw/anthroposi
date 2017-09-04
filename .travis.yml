@@ -1,0 +1,5 @@
+language: ruby
+dist: xenial
+
+script:
+  - make test
