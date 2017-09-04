@@ -7,5 +7,5 @@ Gem::Specification.new do |s|
   s.authors     = ['k z win']
   s.email       = 'rubygems@happyw.info'
   s.files       = Dir['lib/*']
-  s.homepage    = 'https://rubygems.org/gems/example'
+  s.homepage    = 'https://github.com/kzw/anthroposi'
 end
