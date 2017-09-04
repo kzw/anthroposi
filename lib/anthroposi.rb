@@ -3,6 +3,8 @@ class Anthroposi
   BINARY_UNITS = ['B'] + SI_PREFIXES.map { |p| "#{p}iB" }
   DECIMAL_PREFIXES = [''] + SI_PREFIXES
   KILO = 1024
+  SIGNIFICANT_DIGITS = 3
+  LARGEST_THRESHOLD = 9999
 
   def initialize(bytes, decimal = false)
     raise(ArgumentError, 'no string or fractional number') if bytes > 0 && bytes < 1
@@ -13,7 +15,7 @@ class Anthroposi
   end
 
   def to_s
-    format @mantissa > 9999 ? '%.2e%s' : '%s%s', @mantissa, @unit
+    format @mantissa > LARGEST_THRESHOLD ? '%.2e%s' : '%s%s', @mantissa, @unit
   end
 
   private
@@ -38,10 +40,10 @@ class Anthroposi
 
   def compute
     if @ordinal < BINARY_UNITS.size
-      @mantissa = significant_digits(@bytes.to_f / @thousand**@ordinal, 3)
+      @mantissa = significant_digits(@bytes.to_f / @thousand**@ordinal, SIGNIFICANT_DIGITS)
       return @units[@ordinal]
     end
-    @mantissa = significant_digits(@bytes.to_f / @thousand**SI_PREFIXES.size, 3)
+    @mantissa = significant_digits(@bytes.to_f / @thousand**SI_PREFIXES.size, SIGNIFICANT_DIGITS)
     @units[-1]
   end
 end
