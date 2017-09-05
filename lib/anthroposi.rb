@@ -1,3 +1,4 @@
+# A class container for various constants and methods to convert numbers into string with SI prefixes
 class Anthroposi
   SI_PREFIXES = %w(K M G T P E Z Y).freeze
   BINARY_UNITS = ['B'] + SI_PREFIXES.map { |p| "#{p}iB" }
@@ -6,6 +7,9 @@ class Anthroposi
   SIGNIFICANT_DIGITS = 3
   LARGEST_THRESHOLD = 9999
 
+  # @param bytes [Number]
+  # @param decimal[Boolean] optional
+  # @raise ArgumentError if string or number less than 1 is passed in as bytes
   def initialize(bytes, decimal = false)
     raise(ArgumentError, 'no string or fractional number') if bytes > 0 && bytes < 1
     @bytes = bytes
@@ -14,6 +18,9 @@ class Anthroposi
     @unit = compute
   end
 
+  # @return [String]
+  # @example
+  #   Anthroposi.new(314159).to_s #=> "314KiB"
   def to_s
     format @mantissa > LARGEST_THRESHOLD ? '%.2e%s' : '%s%s', @mantissa, @unit
   end
@@ -48,15 +55,30 @@ class Anthroposi
   end
 end
 
+# helper method to compute a number to a given number of significant digits
+# @param number [Numeric]
+# @param digits [Integer] number of significant digits desired
+# @return [Numeric]
+# @example
+#   significant_digits(116_067, 2) #=> 120000
 def significant_digits(number, digits)
   return 0 if number.zero? || digits.zero?
   number.to_f.round(digits - 1 - Math.log10(number.abs).floor)
 end
 
+# wrapper function around Anthroposi class
+# @param b [Integer] bytes
+# @return [String] such as 3.14MiB, 234EiB
+# @example
+#   human_size(1024) #=> "1.0KiB"
 def human_size(b)
   Anthroposi.new(b).to_s
 end
 
-def human_decimal_size(b)
-  Anthroposi.new(b, true).to_s
+# @param n [Numeric] number
+# @return [String] such as 3.14M, 234E
+# @example
+#   human_decimal_size(1000) #=> "1.0M"
+def human_decimal_size(n)
+  Anthroposi.new(n, true).to_s
 end

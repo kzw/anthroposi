@@ -1,4 +1,4 @@
-version=0.0.1
+version=0.0.2
 gem_file=anthroposi-$(version).gem
 $(gem_file): lib/anthroposi.rb anthroposi.gemspec
 	gem build anthroposi.gemspec
