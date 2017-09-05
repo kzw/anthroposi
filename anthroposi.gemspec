@@ -7,5 +7,6 @@ Gem::Specification.new do |s|
   s.authors     = ['k z win']
   s.email       = 'rubygems@happyw.info'
   s.files       = Dir['lib/*']
+  s.add_development_dependency 'rspec', '~> 3.6'
   s.homepage    = 'https://github.com/kzw/anthroposi'
 end
