@@ -27,7 +27,8 @@ puts human_size(2900)
 This outputs `2.83KiB`
 
 ## Tests
-The behavior of this module is documented in the tests.  `make test` will trigger a run
+The behavior of this module is documented in the tests.  `make test` will trigger a run.  An
+example output is
 ```
 KZs-MacBook-Pro:anthroposi me$ make test
 rspec -I lib tests && touch test
