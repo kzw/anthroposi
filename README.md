@@ -3,7 +3,19 @@
 Ruby module to turn a number into a string appended with binary units such as MiB, GiB
 as explained in (https://en.wikipedia.org/wiki/Binary_prefix)
 and to turn number into string appended with si prefixes.
+## Install
 
+Gem
+```
+gem install anthroposi
+```
+
+Git
+```
+git clone https://github.com/kzw/anthroposi
+cd anthroposi
+make
+```
 ## Usage
 
 ```ruby
@@ -17,4 +29,5 @@ This outputs `2.83KiB`
 ## Prior art
 
 Research into existing works point to similar api available in [rail](https://github.com/rails/rails)
-and possibly also in [active state](https://www.activestate.com/ruby-programming)
+, possibly also in [active state](https://www.activestate.com/ruby-programming), and in other
+[gems](https://rubygems.org/search?utf8=%E2%9C%93&query=human-bytes)
