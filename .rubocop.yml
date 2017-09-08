@@ -1,0 +1,20 @@
+Style/FileName:
+  Enabled: false
+Metrics/BlockLength:
+  Max: 70
+LineLength:
+  Enabled: true
+  Max: 100
+Documentation:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/AndOr:
+  EnforcedStyle: conditionals
+  SupportedStyles:
+    - always
+    - conditionals
+Lint/HandleExceptions:
+  Enabled: false
+AllCops:
+  DisplayStyleGuide: true

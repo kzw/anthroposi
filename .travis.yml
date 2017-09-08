@@ -1,0 +1,8 @@
+language: ruby
+dist: xenial
+
+install:
+  - bundle
+
+script:
+  - make test

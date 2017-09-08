@@ -1,0 +1,21 @@
+{
+  "linters": {
+    "chef-json": {
+      "include": "(\\.json$)",
+      "type": "json"
+    },
+    "merge-conflict": {
+      "include": "(.*)",
+      "type": "merge-conflict"
+    },
+    "rubocop": {
+      "include": "(\\.rb$)",
+      "type": "rubocop"
+    },
+    "ruby": {
+      "include": "(\\.rb$)",
+      "type": "ruby",
+      "bin": ["/opt/chefdk/embedded/bin/ruby"]
+    }
+  }
+}
